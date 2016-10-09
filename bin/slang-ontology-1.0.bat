@@ -1,0 +1,1 @@
+java -Dfile.encoding=UTF-8 -jar slang-ontology-1.0.jar
