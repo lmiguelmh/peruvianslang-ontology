@@ -69,7 +69,7 @@
                         <manifest>
                             <classpathPrefix>lib</classpathPrefix>
                             <addClasspath>true</addClasspath>
-                            <mainClass>lmiguelmh.test.ui.SparqlUI</mainClass>
+                            <mainClass>pucp.s2.gc.ontology.ui.SparqlUI</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Class-Path>jena-tdb-3.1.0.jar</Class-Path>

@@ -6,8 +6,9 @@
      xmlns:slang="http://lmiguelmh/slang#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://lmiguelmh/slang"/>
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:slang1="http://pucp.s2.gc.ontology/slang#">
+    <owl:Ontology rdf:about="http://pucp.s2.gc.ontology/slang"/>
     
 
 
@@ -22,45 +23,45 @@
     
 
 
-    <!-- http://lmiguelmh/slang#hasSlang -->
+    <!-- http://pucp.s2.gc.ontology/slang#hasSlang -->
 
-    <owl:ObjectProperty rdf:about="http://lmiguelmh/slang#hasSlang">
-        <owl:inverseOf rdf:resource="http://lmiguelmh/slang#isSlangOf"/>
+    <owl:ObjectProperty rdf:about="http://pucp.s2.gc.ontology/slang#hasSlang">
+        <owl:inverseOf rdf:resource="http://pucp.s2.gc.ontology/slang#isSlangOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://lmiguelmh/slang#word"/>
-        <rdfs:range rdf:resource="http://lmiguelmh/slang#slang"/>
+        <rdfs:domain rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <rdfs:range rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://lmiguelmh/slang#isAntonymOf -->
+    <!-- http://pucp.s2.gc.ontology/slang#isAntonymOf -->
 
-    <owl:ObjectProperty rdf:about="http://lmiguelmh/slang#isAntonymOf">
+    <owl:ObjectProperty rdf:about="http://pucp.s2.gc.ontology/slang#isAntonymOf">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://lmiguelmh/slang#word"/>
-        <rdfs:range rdf:resource="http://lmiguelmh/slang#word"/>
+        <rdfs:domain rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <rdfs:range rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://lmiguelmh/slang#isSlangOf -->
+    <!-- http://pucp.s2.gc.ontology/slang#isSlangOf -->
 
-    <owl:ObjectProperty rdf:about="http://lmiguelmh/slang#isSlangOf">
+    <owl:ObjectProperty rdf:about="http://pucp.s2.gc.ontology/slang#isSlangOf">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://lmiguelmh/slang#slang"/>
-        <rdfs:range rdf:resource="http://lmiguelmh/slang#word"/>
+        <rdfs:domain rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <rdfs:range rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://lmiguelmh/slang#isSynonymOf -->
+    <!-- http://pucp.s2.gc.ontology/slang#isSynonymOf -->
 
-    <owl:ObjectProperty rdf:about="http://lmiguelmh/slang#isSynonymOf">
+    <owl:ObjectProperty rdf:about="http://pucp.s2.gc.ontology/slang#isSynonymOf">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://lmiguelmh/slang#word"/>
-        <rdfs:range rdf:resource="http://lmiguelmh/slang#word"/>
+        <rdfs:domain rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <rdfs:range rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
     </owl:ObjectProperty>
     
 
@@ -76,17 +77,17 @@
     
 
 
-    <!-- http://lmiguelmh/slang#meaning -->
+    <!-- http://pucp.s2.gc.ontology/slang#meaning -->
 
-    <owl:DatatypeProperty rdf:about="http://lmiguelmh/slang#meaning">
+    <owl:DatatypeProperty rdf:about="http://pucp.s2.gc.ontology/slang#meaning">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://lmiguelmh/slang#value -->
+    <!-- http://pucp.s2.gc.ontology/slang#value -->
 
-    <owl:DatatypeProperty rdf:about="http://lmiguelmh/slang#value"/>
+    <owl:DatatypeProperty rdf:about="http://pucp.s2.gc.ontology/slang#value"/>
     
 
 
@@ -101,24 +102,24 @@
     
 
 
-    <!-- http://lmiguelmh/slang#lemma -->
+    <!-- http://pucp.s2.gc.ontology/slang#lemma -->
 
-    <owl:Class rdf:about="http://lmiguelmh/slang#lemma"/>
+    <owl:Class rdf:about="http://pucp.s2.gc.ontology/slang#lemma"/>
     
 
 
-    <!-- http://lmiguelmh/slang#slang -->
+    <!-- http://pucp.s2.gc.ontology/slang#slang -->
 
-    <owl:Class rdf:about="http://lmiguelmh/slang#slang">
-        <rdfs:subClassOf rdf:resource="http://lmiguelmh/slang#lemma"/>
+    <owl:Class rdf:about="http://pucp.s2.gc.ontology/slang#slang">
+        <rdfs:subClassOf rdf:resource="http://pucp.s2.gc.ontology/slang#lemma"/>
     </owl:Class>
     
 
 
-    <!-- http://lmiguelmh/slang#word -->
+    <!-- http://pucp.s2.gc.ontology/slang#word -->
 
-    <owl:Class rdf:about="http://lmiguelmh/slang#word">
-        <rdfs:subClassOf rdf:resource="http://lmiguelmh/slang#lemma"/>
+    <owl:Class rdf:about="http://pucp.s2.gc.ontology/slang#word">
+        <rdfs:subClassOf rdf:resource="http://pucp.s2.gc.ontology/slang#lemma"/>
     </owl:Class>
     
 
@@ -134,159 +135,159 @@
     
 
 
-    <!-- http://lmiguelmh/slang#asado -->
+    <!-- http://pucp.s2.gc.ontology/slang#asado -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#asado">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#slang"/>
-        <isSlangOf rdf:resource="http://lmiguelmh/slang#enojado"/>
-        <meaning>asado</meaning>
-        <value>asado</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#asado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
+        <slang1:meaning>asado</slang1:meaning>
+        <slang1:value>asado</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#cana -->
+    <!-- http://pucp.s2.gc.ontology/slang#cana -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#cana">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#slang"/>
-        <isSlangOf rdf:resource="http://lmiguelmh/slang#cárcel"/>
-        <meaning>cana</meaning>
-        <value>cana</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#cana">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+        <slang1:meaning>cana</slang1:meaning>
+        <slang1:value>cana</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#cárcel -->
+    <!-- http://pucp.s2.gc.ontology/slang#cárcel -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#cárcel">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#word"/>
-        <hasSlang rdf:resource="http://lmiguelmh/slang#cana"/>
-        <meaning>Local destinado a reclusión de presos.</meaning>
-        <value>cárcel</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#cárcel">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#cana"/>
+        <slang1:meaning>Local destinado a reclusión de presos.</slang1:meaning>
+        <slang1:value>cárcel</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#desafortunado -->
+    <!-- http://pucp.s2.gc.ontology/slang#desafortunado -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#desafortunado">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#word"/>
-        <hasSlang rdf:resource="http://lmiguelmh/slang#piña"/>
-        <hasSlang rdf:resource="http://lmiguelmh/slang#salado"/>
-        <meaning>desafortunado</meaning>
-        <value>desafortunado</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#desafortunado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#piña"/>
+        <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#salado"/>
+        <slang1:meaning>desafortunado</slang1:meaning>
+        <slang1:value>desafortunado</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#enfadado -->
+    <!-- http://pucp.s2.gc.ontology/slang#enfadado -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#enfadado">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#word"/>
-        <isSynonymOf rdf:resource="http://lmiguelmh/slang#enojado"/>
-        <meaning>enfadado</meaning>
-        <value>enfadado</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#enfadado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <slang1:isSynonymOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
+        <slang1:meaning>enfadado</slang1:meaning>
+        <slang1:value>enfadado</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#enojado -->
+    <!-- http://pucp.s2.gc.ontology/slang#enojado -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#enojado">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#word"/>
-        <hasSlang rdf:resource="http://lmiguelmh/slang#asado"/>
-        <meaning>enojado</meaning>
-        <value>enojado</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#enojado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#asado"/>
+        <slang1:meaning>enojado</slang1:meaning>
+        <slang1:value>enojado</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#fácil -->
+    <!-- http://pucp.s2.gc.ontology/slang#fácil -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#fácil">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#word"/>
-        <hasSlang rdf:resource="http://lmiguelmh/slang#huevo"/>
-        <hasSlang rdf:resource="http://lmiguelmh/slang#papaya"/>
-        <meaning>fácil</meaning>
-        <value>fácil</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#fácil">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#huevo"/>
+        <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#papaya"/>
+        <slang1:meaning>fácil</slang1:meaning>
+        <slang1:value>fácil</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#huevo -->
+    <!-- http://pucp.s2.gc.ontology/slang#huevo -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#huevo">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#slang"/>
-        <isSlangOf rdf:resource="http://lmiguelmh/slang#fácil"/>
-        <meaning>huevo</meaning>
-        <value>huevo</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#huevo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
+        <slang1:meaning>huevo</slang1:meaning>
+        <slang1:value>huevo</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#lechero -->
+    <!-- http://pucp.s2.gc.ontology/slang#lechero -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#lechero">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#slang"/>
-        <isSlangOf rdf:resource="http://lmiguelmh/slang#suertudo"/>
-        <meaning>lechero</meaning>
-        <value>lechero</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#lechero">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#suertudo"/>
+        <slang1:meaning>lechero</slang1:meaning>
+        <slang1:value>lechero</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#molesto -->
+    <!-- http://pucp.s2.gc.ontology/slang#molesto -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#molesto">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#word"/>
-        <isSynonymOf rdf:resource="http://lmiguelmh/slang#enfadado"/>
-        <meaning>molesto</meaning>
-        <value>molesto</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#molesto">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <slang1:isSynonymOf rdf:resource="http://pucp.s2.gc.ontology/slang#enfadado"/>
+        <slang1:meaning>molesto</slang1:meaning>
+        <slang1:value>molesto</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#papaya -->
+    <!-- http://pucp.s2.gc.ontology/slang#papaya -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#papaya">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#slang"/>
-        <isSlangOf rdf:resource="http://lmiguelmh/slang#fácil"/>
-        <meaning>papaya</meaning>
-        <value>papaya</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#papaya">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
+        <slang1:meaning>papaya</slang1:meaning>
+        <slang1:value>papaya</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#piña -->
+    <!-- http://pucp.s2.gc.ontology/slang#piña -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#piña">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#slang"/>
-        <isSlangOf rdf:resource="http://lmiguelmh/slang#desafortunado"/>
-        <meaning>piña</meaning>
-        <value>piña</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#piña">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#desafortunado"/>
+        <slang1:meaning>piña</slang1:meaning>
+        <slang1:value>piña</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#salado -->
+    <!-- http://pucp.s2.gc.ontology/slang#salado -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#salado">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#slang"/>
-        <isSlangOf rdf:resource="http://lmiguelmh/slang#desafortunado"/>
-        <meaning>salado</meaning>
-        <value>salado</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#salado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#desafortunado"/>
+        <slang1:meaning>salado</slang1:meaning>
+        <slang1:value>salado</slang1:value>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://lmiguelmh/slang#suertudo -->
+    <!-- http://pucp.s2.gc.ontology/slang#suertudo -->
 
-    <owl:NamedIndividual rdf:about="http://lmiguelmh/slang#suertudo">
-        <rdf:type rdf:resource="http://lmiguelmh/slang#word"/>
-        <hasSlang rdf:resource="http://lmiguelmh/slang#lechero"/>
-        <isAntonymOf rdf:resource="http://lmiguelmh/slang#desafortunado"/>
-        <meaning>suertudo</meaning>
-        <value>suertudo</value>
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#suertudo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+        <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#lechero"/>
+        <slang1:isAntonymOf rdf:resource="http://pucp.s2.gc.ontology/slang#desafortunado"/>
+        <slang1:meaning>suertudo</slang1:meaning>
+        <slang1:value>suertudo</slang1:value>
     </owl:NamedIndividual>
 </rdf:RDF>
 
