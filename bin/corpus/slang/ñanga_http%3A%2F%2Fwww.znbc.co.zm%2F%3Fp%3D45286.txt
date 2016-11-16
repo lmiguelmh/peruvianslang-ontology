@@ -1,0 +1,11 @@
+http://www.znbc.co.zm/?p=45286
+www.znbc.co.zm
+No se puede acceder a este sitio web
+No se ha podido encontrar la dirección DNS del servidor de www.znbc.co.zm.
+Prueba a:
+Comprobar la conexión
+Comprobar el proxy, el cortafuegos y la configuración de DNS
+Ejecutar Diagnósticos de red de Windows
+ERR_NAME_NOT_RESOLVED
+Cargar de nuevo
+DETALLES

@@ -100,7 +100,6 @@ public class App2 {
     System.out.println("Executing query: " + queryString);
     QueryExecution qexec = QueryExecutionFactory.create(queryString, model);
 
-
     try {
       ResultSet resultSet = qexec.execSelect();
       ResultSetRewindable results = ResultSetFactory.makeRewindable(resultSet);
@@ -136,6 +135,15 @@ public class App2 {
         results.reset();
         return new String(os.toByteArray(), Charset.defaultCharset());
       }
+
+//      System.out.println("\n---- CSV ----");
+      if("csv".equalsIgnoreCase(type)) {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        ResultSetFormatter.outputAsCSV(os, results);
+        results.reset();
+        return new String(os.toByteArray(), Charset.defaultCharset());
+      }
+
       return "";
 
       /*

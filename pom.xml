@@ -30,6 +30,27 @@
             <version>3.1.0</version>
             <type>pom</type>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>4.10.1</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+            <version>4.10.1</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queryparser</artifactId>
+            <version>4.10.1</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
@@ -96,6 +117,11 @@
                             <Class-Path>commons-csv-1.0.jar</Class-Path>
                             <Class-Path>commons-lang3-3.3.2.jar</Class-Path>
                             <Class-Path>slf4j-api-1.7.20.jar</Class-Path>
+                            <Class-Path>lucene-core-4.10.1.jar</Class-Path>
+                            <Class-Path>lucene-analyzers-common-4.10.1.jar</Class-Path>
+                            <Class-Path>lucene-queryparser-4.10.1.jar</Class-Path>
+                            <Class-Path>lucene-queries-4.10.1.jar</Class-Path>
+                            <Class-Path>lucene-sandbox-4.10.1.jar</Class-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>

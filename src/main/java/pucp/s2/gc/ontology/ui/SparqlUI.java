@@ -1,5 +1,11 @@
 package pucp.s2.gc.ontology.ui;
 
+import org.apache.commons.io.Charsets;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.search.ScoreDoc;
+import pucp.s2.gc.lucene.Indexer;
+import pucp.s2.gc.lucene.Searcher;
 import pucp.s2.gc.ontology.SparqlQuery;
 import pucp.s2.gc.ontology.examples.App2;
 import org.apache.jena.rdf.model.*;
@@ -11,6 +17,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Iterator;
 
 import static pucp.s2.gc.ontology.examples.App2.query;
@@ -41,6 +48,13 @@ public class SparqlUI extends JDialog {
   private JTextField objectTxt;
   private JButton explainBtn;
   private JCheckBox explainInferencesChk;
+  private JButton indexBtn;
+  private JTextField corpusPathTxt;
+  private JTextArea luceneTextArea;
+  private JButton resolveBtn;
+  private JTextArea oneColumnQueryTxt;
+  private JTextField luceneQueryTxt;
+  private JButton searchBtn;
 
   private Model model;
 
@@ -248,6 +262,90 @@ public class SparqlUI extends JDialog {
           explainTxt.setText("");
           e1.printStackTrace();
           showError(e1.getMessage());
+        }
+      }
+    });
+    indexBtn.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent evt) {
+        try {
+          String corpusPath = corpusPathTxt.getText();
+          File folder = new File(corpusPath);
+          Indexer indexer = Indexer.getInstance(corpusPath);
+          luceneTextArea.setText("");
+          for (File file : folder.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+              return name.toLowerCase().endsWith(".txt");
+            }
+          })) {
+            luceneTextArea.append("indexing: " + file.toPath() + "\n");
+            byte[] raw = Files.readAllBytes(file.toPath());
+            indexer.indexar(file.toPath().toString(), new String(raw, Charsets.UTF_8));
+            luceneTextArea.append(file.toPath() + " indexed...\n");
+          }
+          indexer.cerrarEscritor();
+
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    });
+    resolveBtn.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        if (model == null) {
+          showError("Load the OWL file first!");
+          return;
+        }
+
+        try {
+
+          Model queryModel;
+          Reasoner owlReasoner = ReasonerRegistry.getOWLReasoner();
+          Reasoner wnReasoner = owlReasoner.bindSchema(model);
+          wnReasoner.setDerivationLogging(true);
+          queryModel = ModelFactory.createInfModel(wnReasoner, model);
+
+          String queryString = oneColumnQueryTxt.getText();
+          String result = query(queryModel, queryString, "csv");
+
+          String[] tokens = result.split("\n");
+          String words = "";
+          for (int i = 0; i < tokens.length; i++) {
+            if (i != 0 && !tokens[i].isEmpty()) {
+              words += tokens[i] + ",";
+            }
+          }
+          luceneQueryTxt.setText(words);
+
+        } catch (Exception e1) {
+          luceneQueryTxt.setText("");
+          e1.printStackTrace();
+          showError(e1.getMessage());
+        }
+      }
+    });
+    searchBtn.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent evt) {
+
+        try {
+          String corpusPath = corpusPathTxt.getText();
+          String[] words = luceneQueryTxt.getText().split(",");
+          Searcher searcher = Searcher.getInstance(corpusPath);
+          luceneTextArea.setText("");
+          for (String word : words) {
+            luceneTextArea.append(word.toUpperCase() + "\n");
+            if (!word.isEmpty()) {
+              ScoreDoc[] docs = searcher.buscar(word);
+              luceneTextArea.append(searcher.visualizarDocumentos(docs) + "\n");
+            }
+          }
+          //searcher.cerrarBuscador();
+
+        } catch (IOException | ParseException e) {
+          e.printStackTrace();
         }
       }
     });
@@ -484,6 +582,87 @@ public class SparqlUI extends JDialog {
     panel25.add(scrollPane3, BorderLayout.CENTER);
     explainTxt = new JTextArea();
     scrollPane3.setViewportView(explainTxt);
+    final JPanel panel26 = new JPanel();
+    panel26.setLayout(new BorderLayout(0, 0));
+    tabbedPane1.addTab("  Lucene Indexer&Searcher  ", panel26);
+    final JPanel panel27 = new JPanel();
+    panel27.setLayout(new BorderLayout(0, 0));
+    panel26.add(panel27, BorderLayout.NORTH);
+    final JPanel panel28 = new JPanel();
+    panel28.setLayout(new BorderLayout(0, 0));
+    panel27.add(panel28, BorderLayout.NORTH);
+    final JPanel panel29 = new JPanel();
+    panel29.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
+    panel27.add(panel29, BorderLayout.CENTER);
+    final JPanel panel30 = new JPanel();
+    panel30.setLayout(new BorderLayout(5, 30));
+    panel29.add(panel30);
+    final JPanel panel31 = new JPanel();
+    panel31.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+    panel30.add(panel31, BorderLayout.NORTH);
+    final JLabel label8 = new JLabel();
+    label8.setText("Corpus path");
+    panel31.add(label8);
+    final JPanel panel32 = new JPanel();
+    panel32.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+    panel30.add(panel32, BorderLayout.CENTER);
+    final JLabel label9 = new JLabel();
+    label9.setText("One col query");
+    panel32.add(label9);
+    final JPanel panel33 = new JPanel();
+    panel33.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+    panel30.add(panel33, BorderLayout.SOUTH);
+    final JLabel label10 = new JLabel();
+    label10.setText("Words");
+    panel33.add(label10);
+    final JPanel panel34 = new JPanel();
+    panel34.setLayout(new BorderLayout(0, 0));
+    panel29.add(panel34);
+    final JPanel panel35 = new JPanel();
+    panel35.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+    panel34.add(panel35, BorderLayout.NORTH);
+    corpusPathTxt = new JTextField();
+    corpusPathTxt.setColumns(40);
+    corpusPathTxt.setText("./corpus/slang");
+    panel35.add(corpusPathTxt);
+    indexBtn = new JButton();
+    indexBtn.setText("Index");
+    panel35.add(indexBtn);
+    final JPanel panel36 = new JPanel();
+    panel36.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+    panel34.add(panel36, BorderLayout.CENTER);
+    final JScrollPane scrollPane4 = new JScrollPane();
+    panel36.add(scrollPane4);
+    oneColumnQueryTxt = new JTextArea();
+    oneColumnQueryTxt.setColumns(45);
+    oneColumnQueryTxt.setFont(new Font("Consolas", oneColumnQueryTxt.getFont().getStyle(), oneColumnQueryTxt.getFont().getSize()));
+    oneColumnQueryTxt.setRows(3);
+    oneColumnQueryTxt.setText("SELECT ?synonym_word \nWHERE {\n?word <http://pucp.s2.gc.ontology/slang#value> \"enojado\" .\n?synonym <http://pucp.s2.gc.ontology/slang#isSynonymOf> ?word .\n?synonym <http://pucp.s2.gc.ontology/slang#value> ?synonym_word .\n}");
+    scrollPane4.setViewportView(oneColumnQueryTxt);
+    resolveBtn = new JButton();
+    resolveBtn.setText("Resolve");
+    panel36.add(resolveBtn);
+    final JPanel panel37 = new JPanel();
+    panel37.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+    panel34.add(panel37, BorderLayout.SOUTH);
+    luceneQueryTxt = new JTextField();
+    luceneQueryTxt.setColumns(40);
+    luceneQueryTxt.setText("");
+    panel37.add(luceneQueryTxt);
+    searchBtn = new JButton();
+    searchBtn.setText("Search");
+    panel37.add(searchBtn);
+    final JPanel panel38 = new JPanel();
+    panel38.setLayout(new BorderLayout(0, 0));
+    panel29.add(panel38);
+    final JPanel panel39 = new JPanel();
+    panel39.setLayout(new BorderLayout(0, 0));
+    panel26.add(panel39, BorderLayout.CENTER);
+    panel39.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10), null));
+    final JScrollPane scrollPane5 = new JScrollPane();
+    panel39.add(scrollPane5, BorderLayout.CENTER);
+    luceneTextArea = new JTextArea();
+    scrollPane5.setViewportView(luceneTextArea);
     ButtonGroup buttonGroup;
     buttonGroup = new ButtonGroup();
     buttonGroup.add(query4RadioButton);

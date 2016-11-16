@@ -403,6 +403,183 @@
               </grid>
             </children>
           </grid>
+          <grid id="20690" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="  Lucene Indexer&amp;Searcher  "/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="58b09" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="North"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="49bf8" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints border-constraint="North"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children/>
+                  </grid>
+                  <grid id="951f" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <grid id="53e6a" layout-manager="BorderLayout" hgap="5" vgap="30">
+                        <constraints/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="e90c0" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                            <constraints border-constraint="North"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="9cfc3" class="javax.swing.JLabel">
+                                <constraints/>
+                                <properties>
+                                  <text value="Corpus path"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="3f209" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                            <constraints border-constraint="Center"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="a98cd" class="javax.swing.JLabel">
+                                <constraints/>
+                                <properties>
+                                  <text value="One col query"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="e5189" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                            <constraints border-constraint="South"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="d5282" class="javax.swing.JLabel">
+                                <constraints/>
+                                <properties>
+                                  <text value="Words"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                        </children>
+                      </grid>
+                      <grid id="af016" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="3dc17" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                            <constraints border-constraint="North"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="47ce6" class="javax.swing.JTextField" binding="corpusPathTxt">
+                                <constraints/>
+                                <properties>
+                                  <columns value="40"/>
+                                  <text value="./corpus/slang"/>
+                                </properties>
+                              </component>
+                              <component id="33bb8" class="javax.swing.JButton" binding="indexBtn">
+                                <constraints/>
+                                <properties>
+                                  <text value="Index"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="2a65d" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                            <constraints border-constraint="Center"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <scrollpane id="c6cc1">
+                                <constraints/>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="49a30" class="javax.swing.JTextArea" binding="oneColumnQueryTxt">
+                                    <constraints/>
+                                    <properties>
+                                      <columns value="45"/>
+                                      <font name="Consolas"/>
+                                      <rows value="3"/>
+                                      <text value="SELECT ?synonym_word &#10;WHERE {&#10;?word &lt;http://pucp.s2.gc.ontology/slang#value&gt; &quot;enojado&quot; .&#10;?synonym &lt;http://pucp.s2.gc.ontology/slang#isSynonymOf&gt; ?word .&#10;?synonym &lt;http://pucp.s2.gc.ontology/slang#value&gt; ?synonym_word .&#10;}"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </scrollpane>
+                              <component id="9c91f" class="javax.swing.JButton" binding="resolveBtn">
+                                <constraints/>
+                                <properties>
+                                  <text value="Resolve"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="104d5" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                            <constraints border-constraint="South"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="9190" class="javax.swing.JTextField" binding="luceneQueryTxt">
+                                <constraints/>
+                                <properties>
+                                  <columns value="40"/>
+                                  <text value=""/>
+                                </properties>
+                              </component>
+                              <component id="3bc3d" class="javax.swing.JButton" binding="searchBtn">
+                                <constraints/>
+                                <properties>
+                                  <text value="Search"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                        </children>
+                      </grid>
+                      <grid id="7fafc" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints/>
+                        <properties/>
+                        <border type="none"/>
+                        <children/>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="185de" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="empty">
+                  <size top="10" left="10" bottom="10" right="10"/>
+                </border>
+                <children>
+                  <scrollpane id="d3a64">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="f0104" class="javax.swing.JTextArea" binding="luceneTextArea">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+            </children>
+          </grid>
         </children>
       </tabbedpane>
     </children>

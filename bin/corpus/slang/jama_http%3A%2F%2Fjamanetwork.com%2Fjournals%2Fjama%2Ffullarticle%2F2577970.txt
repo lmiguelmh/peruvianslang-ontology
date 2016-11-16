@@ -1,0 +1,122 @@
+http://jamanetwork.com/journals/jama/fullarticle/2577970
+A Plan to “Write” the Human Genome | Genetics and Genomics | JAMA | The JAMA Network
+JAMA
+Sign In
+JAMA Network
+You May Also Like
+Effect of Cranberry Capsules on Bacteriuria Plus Pyuria Among Older Women in Nursing Homes: A Randomized Clinical Trial
+Research November 8, 2016
+The Potential for Postrandomization Confounding in Randomized Clinical Trials
+Opinion June 7, 2016
+More
+New Online
+Views 11,177 Citations 0
+Medical News & Perspectives
+October 26, 2016
+Pioneering Geneticist Explains Ambitious Plan to “Write” the Human Genome
+Jennifer Abbasi
+Author Affiliations Article Information
+JAMA. Published online October 26, 2016. doi:10.1001/jama.2016.10673
+author interview icon
+Author
+Interview
+Author Interviews
+A
+little over a quarter century ago, scientists officially launched the Human Genome Project at the National Institutes of Health, a plan to “read” the approximately 3 billion DNA base pairs that make up a human blueprint. Now, a group of researchers is proposing the next incarnation: an initiative to synthesize, or “write,” large portions of genomes. Weeks after a controversial closed meeting at Harvard in May, the group penned a perspective in Science publicly announcing plans to launch the Human Genome Project-write (HGP-write) this year with $100 million from public, private, philanthropic, industry, and academic funders.
+George Church, PhD
+Wyss Institute at Harvard University
+Larger-scale genome engineering of human cell lines and other organisms will allow scientists to make more complex edits than currently practical with gene editing tools like CRISPR, said project coorganizer George Church, PhD, professor of genetics at Harvard Medical School and a pioneer in the field of genetic sequencing and synthesis.
+As part of his 1984 doctoral thesis, Church developed and described the first direct DNA sequencing method that became the precursor to modern-day next-generation sequencing approaches. Church was involved in launching the Human Genome Project and received 1 of its first grants. In 2013, his laboratory was 1 of 2 that described human genome editing using CRISPR-Cas9.
+More recently, he’s been working on genome-scale engineering of Escherichia coli—proof-of-concept for HGP-write. As the project moves forward, Church said his laboratory will develop and test innovations like generating transplantable organs from altered stem cells.
+“We have shown how easy it is to improve the quality and the cost of reading and writing DNA and genomes in general, and now we realize just how many medical problems can be solved with these new technologies,” he said. “This is an opportunity to make them even better and develop applications for them.”
+Church recently spoke with JAMA about the human health implications of HGP-write. The following is an edited version of the interview.
+JAMA:What is the Human Genome Project-write?
+Dr Church:It will build complicated genomes that might be of value almost right away. The stress is on lowering the costs and improving the testing of many genomes from many organisms—including human—of agricultural, environmental, and medical significance.
+It’s surprising how quickly these exponential technologies are improving and how quickly the cost drops. Reading 2 genes used to cost about $4000. It’s now less than $1000 to read the whole human genome, and I think we’re heading in the same direction for writing genomes.
+JAMA:What does synthesizing a human genome mean—are we talking about reassembling the entire genome?
+Dr Church:I like to think of it as bigger edits—more edits at once for projects that require multiple edits. I think of this as a continuum from changing 1 base pair out of 3 billion—or 6 billion [in the diploid genome]—to changing maybe 1% of it. There’s no project I know of where you would change all 6 billion base pairs into something different so it no longer looks human. It’s much more likely you’re going to be changing [the genome] on the order of a percent or less.
+You can do that by more complicated editing procedures, what we call multiplex editing. Or you can do it by having each edit do more. So if 1 edit brings in a million bases of DNA, you could have within there maybe hundreds of differences.
+JAMA:What’s the difference between a gene editing tool like CRISPR-Cas9 and the type of genome-scale engineering that you’re proposing?
+Dr Church:With editing you might change 1 base pair in a genome—like 1 character in a book. With synthesis you might need to make a whole new edition of a book, where you’d have to make many changes to fix many genes. If you want to make 100 edits with CRISPR, it might be more cost-effective to bring in a few thousand base pairs of DNA that include those 100 edits as 1 big chunk and then essentially do 1 edit that accomplishes 100 things at once.
+If you wanted to change all triplet codons for all of the genes, for example, that would be very hard to do by editing in the conventional sense, where you change 1 at a time. You might have to make 10 000 to a million changes. It might be easier just to synthesize that and pop it in as 1 edit.
+JAMA:What’s an example of a situation where you might want to do this?
+Dr Church:Making a multivirus-resistant cell. So, for example, Genzyme is a manufacturer of orphan drugs, and they had an incident not long ago where for 2 years their production was held up by a Vesivirus infection [of Chinese hamster ovary cells used to produce drugs]. They were 1 of the sole suppliers of many of these orphan drugs, so this was a serious medical problem. If they had been using, say, human cells resistant to the virus, which might require very extensive change in the genome of the human cells, they wouldn’t have had that particular infection.
+You can imagine similar things where the goal is not to engineer a cell culture for manufacturing pharmaceuticals but where the cells are therapeutics in their own right. In this case you would prefer to use cells that are, say, resistant to cancer, viruses, and aging. Everything else being equal, if you put stem cells into a patient or do organ transplants, you’d like them to be the highest quality that you can get. And, again, those might benefit from having extensive genome engineering.
+JAMA:What was the inspiration for this project? How did the idea of HGP-write arise?
+Dr Church:I think there were many different converging inspirations. Personally, we’ve been reading and writing DNA since I started my laboratory in 1986. And since about 2009, we’ve had private and public funding for developing technology such as CRISPR and other genome-engineering technologies to bring down the cost of reading and writing human genomes.
+Another intersecting source of inspiration is that Jeff Boeke’s laboratory at New York University and my laboratory at Harvard have been doing the 2 largest genome-engineering projects for 2 microorganisms—yeast and E coli—which are both of industrial significance. So we felt like the next logical step, as we finish up these 2 projects, was to start thinking of projects that might be of medical significance rather than industrial significance.
+JAMA:What’s the status of your E coli project?
+Dr Church:We’ve done 1 round of E coli engineering where we changed 1 strain to have only 63 of the 64 [normal] codons, and it is virus resistant but not absolutely. Now we’re almost done with 1 that has 57 codons, and it will probably be completely resistant to all the viruses. We engineered it to have a new genetic code, which has major industrial advantages. But it’s proof of concept that it can be done in 1 industrial organism, so it’s very likely we can do it in a slightly more complicated one, which are human cells.
+JAMA:How far are we from being able to synthesize a human genome?
+Dr Church:The record that we’ve set so far in mammalian cells is 62 changes at once. We hope to bring down the cost by factors of 10 every few years, as we have for both reading and writing genomes in the past. We brought down the cost of reading genomes about 3 million-fold over the last few years. Once you put your mind to it, you can get these exponential improvements in cost and quality. I think that’s the major goal.
+JAMA:Could you describe some of the projects you’re envisioning that have implications for human health?
+Dr Church:One of the pilot projects is working on organs that are transplantable. These might be organs from pigs, for example, which have about the right size and shape but that might need many genomic changes to make them compatible with human physiology and immunology and to reduce their viral load and make them resistant to pathogens. All of those changes can be achieved in a fairly small number of editing steps if you’re using this new genome synthesis strategy.
+Another pilot project would be going through variants of unknown significance from diagnostic laboratories. If you’re a patient, 1 or more of those might be contributing to your maladies. And 1 of the ways of establishing which ones are deleterious and which ones are neutral is by putting [each mutation] in 1 at a time in a synthetic system [such as human organoids], or maybe testing many at once but in a very controlled manner. These [synthetic systems] are surrogates for various human physiological systems and organs, where you can test the effect of changing a single base pair. You can’t do these [experiments] in animal models because the physiology is different, so swapping out 1 base pair wouldn’t necessarily be nuanced enough.
+Transplantation from pigs, variants of unknown significance, virus-resistant cells—both for manufacturing and for stem cell and other therapies—some of these projects would be right away and some of them will be pretty far out in time to get full regulatory FDA [US Food and Drug Administration] approval. But those are probably the tip of the iceberg, and I don’t know what the baby will grow up into.
+JAMA:Your paper in Science stressed responsible innovation. So how does your group plan to move forward responsibly?
+Dr Church:One of the things that we have done already is that most of our new technologies are accompanied by papers on policy, ethics, social, and legal aspects. Another thing is doing it very openly, transparently. So, for example, the meeting [at Harvard in May] that received some attention on this was videotaped and that’s publicly available. The consensus view of the organizers and many of the participants is represented in [the Science paper published in June] that’s publicly available. I think that level of transparency is critical. Also, looking out for any safety and efficacy issues, making sure there’s a dialogue with the FDA on anything that’s intended for diagnostic or therapeutic components.
+JAMA:What are the next steps for this project?
+Dr Church:One of them is communication … getting lots of young people excited about it, getting companies to think a little bit more out of the box, and seeing what the public wants and doesn’t want in a very broad sense. Now is a time of conversation.
+JAMA:Could you tell us a little bit about your career and what brought you to this point in your journey?
+Dr Church:Well, I’ve been fascinated by the intersection of math and computers and technology with biomedicine. My father was a physician who read JAMA. I was inspired by all the technologies in those pages and in his black medical bag. Pretty much since I was a teenager in college, I’ve been wanting to integrate all these into 1 research package where we could read and write nucleic acids. That is what I did my thesis on—various aspects of reading and writing genomes—and I have done that ever since. [There have been] many failures along the way. It certainly hasn’t been a direct trajectory, but it’s been very exciting taking those chances and watching the subsets that work out.
+Back to top
+Article Information
+Note: The print version excludes source references. Please go online to jama.com.
+See More About
+Genetics and Genomics
+Download PDF
+Cite This
+Permissions
+You May Also Like
+Research
+is learning
+Effect of Cranberry Capsules on Bacteriuria Plus Pyuria Among Older Women in Nursing Homes: A Randomized Clinical Trial
+Opinion
+The Potential for Postrandomization Confounding in Randomized Clinical Trials
+Review
+Alternatives to Fluoroquinolones
+icon stethoscope
+PHYSICIAN JOBS
+Find Jobs Now
+You May Also Like
+Effect of Cranberry Capsules on Bacteriuria Plus Pyuria Among Older Women in Nursing Homes: A Randomized Clinical Trial
+JAMA Research November 8, 2016
+Association of Acetaminophen Use During Pregnancy With Behavioral Problems in Childhood: Evidence Against Confounding
+JAMA Pediatrics Research October 1, 2016
+Association Between the Centers for Medicare and Medicaid Services Hospital Star Rating and Patient Outcomes
+JAMA Internal Medicine Research June 1, 2016
+JAMA
+CONTENT
+Home New Online Current Issue Podcasts
+SERVICES
+For Authors For Readers About Editors & Publishers Contact Us
+Learning Store Mobile Jobs
+Subscribe
+Go
+The JAMA Network®
+JOURNALS
+JAMA JAMA Cardiology JAMA Dermatology JAMA Facial Plastic Surgery JAMA Internal Medicine JAMA Neurology JAMA Oncology JAMA Ophthalmology JAMA Otolaryngology–Head & Neck Surgery JAMA Pediatrics JAMA Psychiatry JAMA Surgery Archives of Neurology & Psychiatry
+SITES
+AMA Manual of Style Art and Images in Psychiatry Breast Cancer Screening Guidelines Colorectal Screening Guidelines Declaration of Helsinki Depression Screening Guidelines Evidence-Based Medicine: An Oral History Health Disparities Hypertension Guidelines JAMAevidence JAMA Network Audio Med Men Medical Education MOC Reporting Preferences Opioid Management Guidelines Peer Review Congress Sepsis and Septic Shock Topics and Collections
+
+
+FEATURED ARTICLES
+ACS Breast Cancer Screening Guideline CDC Guideline for Prescribing Opioids Consensus Definitions for Sepsis and Septic Shock Income and Life Expectancy in the US JNC 8 Guideline for Management of High Blood Pressure President Obama on US Health Care Reform Screening for Colorectal Cancer Screening for Depression in Adults WMA Declaration of Helsinki, 7th Revision
+
+
+BLOGS
+JAMA Internal Medicine Blog The JAMA Forum Topics in Ophthalmology
+LEARNING
+CME Quizzes About CME Subscribe
+INFORMATION FOR
+Authors Institutions & Librarians Advertisers Subscription Agents Employers & Job Seekers
+FOR THE MEDIA
+Press Releases Video Releases
+SERVICES
+Subscriptions & Renewals Email Subscriptions Reprints & Permission For Authors Mobile Help Update Your Address
+Other Resources
+ICMJE Physician Jobs Conditions of Use Privacy Policy Copyright Advertising Policies
+Social
+Get the latest from JAMA
+Sign Up
+2016 American Medical Association. All Rights Reserved.
