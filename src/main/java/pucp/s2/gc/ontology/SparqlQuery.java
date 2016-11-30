@@ -5,6 +5,8 @@ package pucp.s2.gc.ontology;
  */
 public class SparqlQuery {
 
+  public static final String CLASS_SUFFIX = ".clase.txt";
+
   public static final String SELECT_ALL = "" +
       "SELECT * { ?s ?p ?o }";
 

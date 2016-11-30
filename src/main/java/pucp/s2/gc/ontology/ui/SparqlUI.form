@@ -486,13 +486,21 @@
                                 <constraints/>
                                 <properties>
                                   <columns value="40"/>
-                                  <text value="./corpus/slang"/>
+                                  <text value="corpus/slang"/>
                                 </properties>
                               </component>
                               <component id="33bb8" class="javax.swing.JButton" binding="indexBtn">
                                 <constraints/>
                                 <properties>
                                   <text value="Index"/>
+                                </properties>
+                              </component>
+                              <component id="4c5b6" class="javax.swing.JCheckBox" binding="indexWithClassCheckBox" default-binding="true">
+                                <constraints/>
+                                <properties>
+                                  <actionCommand value=" index with class"/>
+                                  <selected value="true"/>
+                                  <text value="index   with   class"/>
                                 </properties>
                               </component>
                             </children>
@@ -510,7 +518,7 @@
                                   <component id="49a30" class="javax.swing.JTextArea" binding="oneColumnQueryTxt">
                                     <constraints/>
                                     <properties>
-                                      <columns value="45"/>
+                                      <columns value="60"/>
                                       <font name="Consolas"/>
                                       <rows value="3"/>
                                       <text value="SELECT ?synonym_word &#10;WHERE {&#10;?word &lt;http://pucp.s2.gc.ontology/slang#value&gt; &quot;enojado&quot; .&#10;?synonym &lt;http://pucp.s2.gc.ontology/slang#isSynonymOf&gt; ?word .&#10;?synonym &lt;http://pucp.s2.gc.ontology/slang#value&gt; ?synonym_word .&#10;}"/>
@@ -544,6 +552,13 @@
                                   <text value="Search"/>
                                 </properties>
                               </component>
+                              <component id="30772" class="javax.swing.JCheckBox" binding="searchWithClassCheckBox" default-binding="true">
+                                <constraints/>
+                                <properties>
+                                  <selected value="true"/>
+                                  <text value="search with class"/>
+                                </properties>
+                              </component>
                             </children>
                           </grid>
                         </children>
@@ -574,6 +589,7 @@
                         <constraints/>
                         <properties>
                           <contentType value="text/html"/>
+                          <editable value="false"/>
                         </properties>
                       </component>
                     </children>

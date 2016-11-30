@@ -39,6 +39,9 @@ public class Searcher {
   private static Searcher instance = null;
 
   public static Searcher getInstance(String indexDir) throws IOException {
+    if(indexDir == null) {
+      return instance;
+    }
     if(instance == null) {
       instance = new Searcher(indexDir);
       instance.crearBuscador();
@@ -67,6 +70,14 @@ public class Searcher {
     return list;
   }
 
+  public ScoreDoc[] buscarPorClase(String clazz) throws ParseException, IOException {
+    ScoreDoc[] list;
+    QueryParser parser = new QueryParser("class", analyzer);
+    Query query = parser.parse(clazz);
+    list = searcher.search(query, 100).scoreDocs;
+    return list;
+  }
+
   public String visualizarDocumentos(ScoreDoc[] list) throws IOException {
     String results = "";
     for (ScoreDoc scoreDoc : list) {
@@ -79,13 +90,16 @@ public class Searcher {
   }
 
   public String visualizarDocumentos2(ScoreDoc[] list) throws IOException {
-    String results = "";
+    StringBuilder results = new StringBuilder();
+      results.append("<table style=\"width:100%\" border=\"1\"><tr><th>ID</th><th>SCORE</th><th>DOCUMENT</th></tr>");
     for (ScoreDoc scoreDoc : list) {
       Document doc = searcher.doc(scoreDoc.doc);
       String title = doc.get("title");
       //System.out.println(scoreDoc.doc + "-" + scoreDoc.score + "-" + text);
-      results += "<p>"+scoreDoc.doc + "-" + scoreDoc.score + "- <a href=\""+new File(title).toURI().toURL()+"\">" + title + "</a></p>";
+      //results += "<p>"+scoreDoc.doc + "-" + scoreDoc.score + "- <a href=\""+new File(title).toURI().toURL()+"\">" + title + "</a></p>";
+      results.append("<td>" +scoreDoc.doc+ "</td><td>" +scoreDoc.score+ "</td><td><a href=\""+new File(title).toURI().toURL()+"\">" + title + "</a></td></tr>");
     }
-    return results;
+    results.append("</table>");
+    return results.toString();
   }
 }

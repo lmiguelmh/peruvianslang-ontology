@@ -1,14 +1,9 @@
 package pucp.s2.gc.lucene;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.es.SpanishAnalyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.document.FieldType;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -16,8 +11,12 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
+import java.io.File;
+import java.io.IOException;
+
 public class Indexer {
 
+  private static Indexer instance = null;
   private String indexDir = "ir-dir";
   private Version version;
   private Directory directory;
@@ -28,8 +27,6 @@ public class Indexer {
   private Indexer(String indexDir) {
     this.indexDir = indexDir;
   }
-
-  private static Indexer instance = null;
 
   public static Indexer getInstance(String indexDir) throws IOException {
     if (instance == null) {
@@ -46,6 +43,7 @@ public class Indexer {
     analyzer = new SpanishAnalyzer();
     config = new IndexWriterConfig(version, analyzer);
     writer = new IndexWriter(directory, config);
+    eliminarDocumentos();
   }
 
   public void cerrarEscritor() throws IOException {
@@ -53,11 +51,27 @@ public class Indexer {
     directory.close();
   }
 
-  public  void indexar(String title, String text) throws IOException {
+  public void eliminarDocumentos() throws IOException{
+    writer.deleteAll();
+  }
+
+
+  public void indexar(String title, String text) throws IOException {
     Document doc = new Document();
     Field field = new Field("text", text, TextField.TYPE_STORED);
     doc.add(field);
     field = new Field("title", title, TextField.TYPE_STORED);
+    doc.add(field);
+    writer.addDocument(doc);
+  }
+
+  public void indexar(String title, String text, String clazz) throws IOException {
+    Document doc = new Document();
+    Field field = new Field("text", text, TextField.TYPE_STORED);
+    doc.add(field);
+    field = new Field("title", title, TextField.TYPE_STORED);
+    doc.add(field);
+    field = new Field("class", clazz, TextField.TYPE_STORED);
     doc.add(field);
     writer.addDocument(doc);
   }

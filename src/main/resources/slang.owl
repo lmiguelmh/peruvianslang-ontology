@@ -23,6 +23,12 @@
     
 
 
+    <!-- http://pucp.s2.gc.ontology/slang#fromCountry -->
+
+    <owl:ObjectProperty rdf:about="http://pucp.s2.gc.ontology/slang#fromCountry"/>
+    
+
+
     <!-- http://pucp.s2.gc.ontology/slang#hasSlang -->
 
     <owl:ObjectProperty rdf:about="http://pucp.s2.gc.ontology/slang#hasSlang">
@@ -102,6 +108,14 @@
     
 
 
+    <!-- http://pucp.s2.gc.ontology/slang#country -->
+
+    <owl:Class rdf:about="http://pucp.s2.gc.ontology/slang#country">
+        <rdfs:subClassOf rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+    </owl:Class>
+    
+
+
     <!-- http://pucp.s2.gc.ontology/slang#lemma -->
 
     <owl:Class rdf:about="http://pucp.s2.gc.ontology/slang#lemma"/>
@@ -135,13 +149,104 @@
     
 
 
+    <!-- http://pucp.s2.gc.ontology/slang#a_huevo -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#a_huevo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#españa"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#aguitado -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#aguitado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#mexico"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#molesto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#alcancia -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#alcancia">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#mexico"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#alunado -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#alunado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#argentina -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#argentina">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#country"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://pucp.s2.gc.ontology/slang#asado -->
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#asado">
         <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
         <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
         <slang1:meaning>asado</slang1:meaning>
         <slang1:value>asado</slang1:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#bejuco -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#bejuco">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#botado -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#botado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#chile"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#bote -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#bote">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#mexico"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#caliente -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#caliente">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#molesto"/>
     </owl:NamedIndividual>
     
 
@@ -150,9 +255,84 @@
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#cana">
         <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#chile"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
         <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
         <slang1:meaning>cana</slang1:meaning>
         <slang1:value>cana</slang1:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#caro -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#caro">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#chepudo -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#chepudo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#suertudo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#chile -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#chile">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#chirona -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#chirona">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#españa"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#chistoso -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#chistoso">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#colombia -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#colombia">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#compadrito -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#compadrito">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#molesto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#culada -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#culada">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
     </owl:NamedIndividual>
     
 
@@ -168,6 +348,16 @@
     
 
 
+    <!-- http://pucp.s2.gc.ontology/slang#de_buenas -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#de_buenas">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#suertudo"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://pucp.s2.gc.ontology/slang#desafortunado -->
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#desafortunado">
@@ -176,6 +366,38 @@
         <slang1:hasSlang rdf:resource="http://pucp.s2.gc.ontology/slang#salado"/>
         <slang1:meaning>desafortunado</slang1:meaning>
         <slang1:value>desafortunado</slang1:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#enchichado -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#enchichado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#molesto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#enchilado -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#enchilado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#mexico"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#molesto"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#enculado -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#enculado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
     </owl:NamedIndividual>
     
 
@@ -202,6 +424,24 @@
     
 
 
+    <!-- http://pucp.s2.gc.ontology/slang#españa -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#españa">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#flamenco -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#flamenco">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#mexico"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#molesto"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://pucp.s2.gc.ontology/slang#fácil -->
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#fácil">
@@ -214,11 +454,35 @@
     
 
 
+    <!-- http://pucp.s2.gc.ontology/slang#gayola -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#gayola">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#españa"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#hueco -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#hueco">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://pucp.s2.gc.ontology/slang#huevo -->
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#huevo">
         <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#españa"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
         <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#mucho"/>
         <slang1:meaning>huevo</slang1:meaning>
         <slang1:value>huevo</slang1:value>
     </owl:NamedIndividual>
@@ -229,9 +493,18 @@
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#lechero">
         <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
         <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#suertudo"/>
         <slang1:meaning>lechero</slang1:meaning>
         <slang1:value>lechero</slang1:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#mexico -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#mexico">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#country"/>
     </owl:NamedIndividual>
     
 
@@ -247,13 +520,50 @@
     
 
 
+    <!-- http://pucp.s2.gc.ontology/slang#mucho -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#mucho">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://pucp.s2.gc.ontology/slang#papaya -->
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#papaya">
         <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
         <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
         <slang1:meaning>papaya</slang1:meaning>
         <slang1:value>papaya</slang1:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#papita -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#papita">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#mexico"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#peru -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#peru">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#pichado -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#pichado">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#enojado"/>
     </owl:NamedIndividual>
     
 
@@ -262,9 +572,30 @@
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#piña">
         <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
         <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#desafortunado"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#puñetazo"/>
         <slang1:meaning>piña</slang1:meaning>
         <slang1:value>piña</slang1:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#puñetazo -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#puñetazo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#word"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#ruidajo -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#ruidajo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#colombia"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#molesto"/>
     </owl:NamedIndividual>
     
 
@@ -273,6 +604,12 @@
 
     <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#salado">
         <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#chile"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#españa"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#peru"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#caro"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#chistoso"/>
         <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#desafortunado"/>
         <slang1:meaning>salado</slang1:meaning>
         <slang1:value>salado</slang1:value>
@@ -288,6 +625,44 @@
         <slang1:isAntonymOf rdf:resource="http://pucp.s2.gc.ontology/slang#desafortunado"/>
         <slang1:meaning>suertudo</slang1:meaning>
         <slang1:value>suertudo</slang1:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#tambo -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#tambo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#mexico"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#trena -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#trena">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#trullo -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#trullo">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#españa"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#cárcel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://pucp.s2.gc.ontology/slang#papita_pa&apos;l_loro -->
+
+    <owl:NamedIndividual rdf:about="http://pucp.s2.gc.ontology/slang#papita_pa&apos;l_loro">
+        <rdf:type rdf:resource="http://pucp.s2.gc.ontology/slang#slang"/>
+        <slang1:fromCountry rdf:resource="http://pucp.s2.gc.ontology/slang#argentina"/>
+        <slang1:isSlangOf rdf:resource="http://pucp.s2.gc.ontology/slang#fácil"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
