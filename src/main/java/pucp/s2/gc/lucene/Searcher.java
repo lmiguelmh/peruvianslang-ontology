@@ -5,12 +5,8 @@
  */
 package pucp.s2.gc.lucene;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.es.SpanishAnalyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -21,6 +17,9 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author Guest
@@ -75,6 +74,17 @@ public class Searcher {
       String title = doc.get("title");
       //System.out.println(scoreDoc.doc + "-" + scoreDoc.score + "-" + text);
       results += scoreDoc.doc + "-" + scoreDoc.score + "-" + title + "\n";
+    }
+    return results;
+  }
+
+  public String visualizarDocumentos2(ScoreDoc[] list) throws IOException {
+    String results = "";
+    for (ScoreDoc scoreDoc : list) {
+      Document doc = searcher.doc(scoreDoc.doc);
+      String title = doc.get("title");
+      //System.out.println(scoreDoc.doc + "-" + scoreDoc.score + "-" + text);
+      results += "<p>"+scoreDoc.doc + "-" + scoreDoc.score + "- <a href=\""+new File(title).toURI().toURL()+"\">" + title + "</a></p>";
     }
     return results;
   }

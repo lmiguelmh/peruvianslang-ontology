@@ -570,9 +570,11 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <component id="f0104" class="javax.swing.JTextArea" binding="luceneTextArea">
+                      <component id="9a2e9" class="javax.swing.JEditorPane" binding="luceneEditorPane">
                         <constraints/>
-                        <properties/>
+                        <properties>
+                          <contentType value="text/html"/>
+                        </properties>
                       </component>
                     </children>
                   </scrollpane>

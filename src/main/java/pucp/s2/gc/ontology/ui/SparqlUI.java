@@ -1,29 +1,36 @@
 package pucp.s2.gc.ontology.ui;
 
 import org.apache.commons.io.Charsets;
-import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.reasoner.Derivation;
+import org.apache.jena.reasoner.Reasoner;
+import org.apache.jena.reasoner.ReasonerRegistry;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.ScoreDoc;
 import pucp.s2.gc.lucene.Indexer;
 import pucp.s2.gc.lucene.Searcher;
 import pucp.s2.gc.ontology.SparqlQuery;
 import pucp.s2.gc.ontology.examples.App2;
-import org.apache.jena.rdf.model.*;
-import org.apache.jena.reasoner.Derivation;
-import org.apache.jena.reasoner.Reasoner;
-import org.apache.jena.reasoner.ReasonerRegistry;
 
 import javax.swing.*;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.Iterator;
 
 import static pucp.s2.gc.ontology.examples.App2.query;
 import static pucp.s2.gc.ontology.examples.App2.readModelFromFactory;
 
-public class SparqlUI extends JDialog {
+public class SparqlUI extends JDialog implements HyperlinkListener {
   private JPanel contentPane;
   private JButton buttonOK;
   private JButton buttonCancel;
@@ -50,7 +57,7 @@ public class SparqlUI extends JDialog {
   private JCheckBox explainInferencesChk;
   private JButton indexBtn;
   private JTextField corpusPathTxt;
-  private JTextArea luceneTextArea;
+  private JEditorPane luceneEditorPane;
   private JButton resolveBtn;
   private JTextArea oneColumnQueryTxt;
   private JTextField luceneQueryTxt;
@@ -61,7 +68,61 @@ public class SparqlUI extends JDialog {
   public SparqlUI() {
     setContentPane(contentPane);
     setModal(true);
+    setTitle("PUCP - Gestión del Conocimiento");
     getRootPane().setDefaultButton(buttonOK);
+    luceneEditorPane.setText("<h1 color=\"black\" align=\"center\">Spanish Slang</h1><br/>\n" +
+        "<br/>\n" +
+        "<p>List of results:</p>\n" +
+        "<br/>\n" );
+
+    final HTMLDocument htmlDoc = (HTMLDocument) luceneEditorPane.getDocument();
+    final HTMLEditorKit kit = (HTMLEditorKit) luceneEditorPane.getEditorKit();
+
+      /*
+      try {
+          kit.insertHTML(htmlDoc, htmlDoc.getLength(), "<b>Hello</b>", 0, 0, null);
+          kit.insertHTML(htmlDoc, htmlDoc.getLength(), "World", 0, 0, null);
+      } catch (BadLocationException e) {
+          e.printStackTrace();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+
+      Element[] roots = htmlDoc.getRootElements(); // #0 is the HTML element, #1 the bidi-root
+      Element ul = null;
+      for( int i = 0; i < roots[0].getElementCount(); i++ ) {
+          Element element = roots[0].getElement( i );
+          System.out.println("Element: "+element.getName()+" - "+element.toString());
+          if( element.getAttributes().getAttribute( StyleConstants.NameAttribute ) == HTML.Tag.UL ) {
+              ul = element;
+              break;
+          }
+      }
+
+      try {
+          htmlDoc.insertAfterStart( ul, "<font>text</font>" );
+          htmlDoc.insertBeforeEnd( htmlDoc.getElement("body"), "<span>Lalala</span>" );
+      } catch (BadLocationException e) {
+          e.printStackTrace();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      */
+
+    try {
+      //luceneEditorPane.setText("<ul><li><a href=\""+new File("d:\\eula.1028.txt").toURI().toURL()+"\">File link</a></li></
+      luceneEditorPane.setText("<ul><li><a href=\""+new File("corpus/slang/latear_http%253A%252F%252Felcomercio.pe%252Fluces%252Fmusica%252Fvoz-propia-relato-coral-banda-culto-noticia-1932383.txt").toURI().toURL()+"\">File link</a></li></ul>");
+
+      //System.out.println("Doc web: "+luceneEditorPane.getDocument().toString());
+      //System.out.println("Html doc: "+((HTMLDocument) luceneEditorPane.getDocument()).getElement("ul").getName());
+      ((HTMLDocument) luceneEditorPane.getDocument()).insertBeforeEnd(((HTMLDocument) luceneEditorPane.getDocument()).getElement("ul"),"<li><a href=\\\"\"+new File(\"d:\\\\eula.1028.txt\").toURI().toURL()+\"\\\">File link</a></li>");
+    } catch (MalformedURLException e) {
+      e.printStackTrace();
+    } catch (BadLocationException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
     buttonOK.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -268,26 +329,67 @@ public class SparqlUI extends JDialog {
     indexBtn.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent evt) {
+        Indexer indexer = null;
         try {
           String corpusPath = corpusPathTxt.getText();
+          indexer = Indexer.getInstance(corpusPath);
+
+          System.out.println(Arrays.toString(luceneEditorPane.getDocument().getRootElements()));
           File folder = new File(corpusPath);
-          Indexer indexer = Indexer.getInstance(corpusPath);
-          luceneTextArea.setText("");
-          for (File file : folder.listFiles(new FilenameFilter() {
+          File[] files = folder.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-              return name.toLowerCase().endsWith(".txt");
+              return name.toLowerCase().endsWith(".txt")
+                  && !name.toLowerCase().endsWith("clase.txt"); //ignoremos clase
             }
-          })) {
-            luceneTextArea.append("indexing: " + file.toPath() + "\n");
-            byte[] raw = Files.readAllBytes(file.toPath());
-            indexer.indexar(file.toPath().toString(), new String(raw, Charsets.UTF_8));
-            luceneTextArea.append(file.toPath() + " indexed...\n");
+          });
+
+          StringBuilder sb = new StringBuilder();
+          if (files == null || files.length == 0) {
+            sb.append("0 indexed files");
+          } else {
+            for (File file : files) {
+              //sb.append("indexing: " + file.toPath() + "\n");
+//              try {
+//                kit.insertHTML(htmlDoc, htmlDoc.getLength(), "<p>Indexing: <a href=\"" + file.toURI().toURL() + "\">"+file.getName()+"</a>" + "</p>", 0, 0, null);
+//                //((HTMLDocument) luceneEditorPane.getDocument()).insertBeforeEnd(((HTMLDocument) luceneEditorPane.getDocument()).getElement("ul"),"<li>indexing: " + file.toPath() + "</li>");
+//                //luceneEditorPane.getDocument().insertString(luceneEditorPane.getDocument().getLength(), "indexing: " + file.toPath() + "<br />", new SimpleAttributeSet());
+//              } catch (BadLocationException e) {
+//                e.printStackTrace();
+//              }
+              byte[] raw = Files.readAllBytes(file.toPath());
+              indexer.indexar(file.toPath().toString(), new String(raw, Charsets.UTF_8));
+//              sb.append(file.toPath() + " indexed...\n");
+              try {
+                System.out.println("<li>" + file.toPath() + " indexed..." + "</li>");
+                kit.insertHTML(htmlDoc, htmlDoc.getLength(), "<p><a href=\"" + file.toURI().toURL() + "\">"+file.getName()+"</a> indexed..." + "</p>", 0, 0, null);
+                //((HTMLDocument) luceneEditorPane.getDocument()).insertBeforeEnd(luceneEditorPane.getDocument().getRootElements()[0],"<li>" + file.toPath() + " indexed..." + "</li>");
+                //luceneEditorPane.getDocument().insertString(luceneEditorPane.getDocument().getLength(), file.toPath() + " indexed..." + "<br />", new SimpleAttributeSet());
+              } catch (BadLocationException e) {
+                e.printStackTrace();
+              }
+            }
+//            sb.append(files.length + " indexed files");
           }
-          indexer.cerrarEscritor();
+          //luceneEditorPane.setText(sb.toString());
+
+          //indexer.cerrarEscritor();
+          //showInfo("Indexación completada correctamente.");
+          JOptionPane.showMessageDialog(null, "Indexación completada correctamente.", "Resultado de la Indexación", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IOException e) {
+          showInfo("Error al realizar la indexación. \n"+e.getMessage());
+          //JOptionPane.showMessageDialog(null, "Error al realizar la indexación. \n"+e.getMessage(), "Resultado de la Indexación", JOptionPane.INFORMATION_MESSAGE);
           e.printStackTrace();
+
+        } finally {
+          if (indexer != null) {
+            try {
+              indexer.cerrarEscritor();
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
+          }
         }
       }
     });
@@ -334,14 +436,40 @@ public class SparqlUI extends JDialog {
           String corpusPath = corpusPathTxt.getText();
           String[] words = luceneQueryTxt.getText().split(",");
           Searcher searcher = Searcher.getInstance(corpusPath);
-          luceneTextArea.setText("");
+
+          luceneEditorPane.setText("");
+          luceneEditorPane.setText("<h1 color=\"black\" align=\"center\">Spanish Slang</h1><br/>\n" +
+              "<br/>\n" +
+              "<p>List of results:</p>\n" +
+              "<br/>\n" );
+
+          StringBuilder sb = new StringBuilder();
           for (String word : words) {
-            luceneTextArea.append(word.toUpperCase() + "\n");
+            sb.append(word.toUpperCase()).append("\n");
+            try {
+              kit.insertHTML(htmlDoc, htmlDoc.getLength(), "<p>"+word.toUpperCase()+"</p>", 0, 0, null);
+              //((HTMLDocument) luceneEditorPane.getDocument()).insertBeforeEnd(((HTMLDocument) luceneEditorPane.getDocument()).getElement("ul"),"<li>" + word.toUpperCase() + "</li>");
+              //luceneEditorPane.getDocument().insertString(luceneEditorPane.getDocument().getLength(), word.toUpperCase() + "<br />", new SimpleAttributeSet());
+            } catch (BadLocationException e) {
+              e.printStackTrace();
+            }
+
             if (!word.isEmpty()) {
               ScoreDoc[] docs = searcher.buscar(word);
-              luceneTextArea.append(searcher.visualizarDocumentos(docs) + "\n");
+              sb.append(searcher.visualizarDocumentos(docs)).append("\n");
+
+              try {
+                kit.insertHTML(htmlDoc, htmlDoc.getLength(), searcher.visualizarDocumentos2(docs), 0, 0, null);
+                //((HTMLDocument) luceneEditorPane.getDocument()).insertBeforeEnd(((HTMLDocument) luceneEditorPane.getDocument()).getElement("ul"),"<li>" + searcher.visualizarDocumentos(docs) + "</li>");
+                //luceneEditorPane.getDocument().insertString(luceneEditorPane.getDocument().getLength(), searcher.visualizarDocumentos(docs) + "<br />", new SimpleAttributeSet());
+              } catch (BadLocationException e) {
+                e.printStackTrace();
+              }
             }
           }
+
+//          luceneEditorPane.setText(sb.toString());
+
           //searcher.cerrarBuscador();
 
         } catch (IOException | ParseException e) {
@@ -349,6 +477,47 @@ public class SparqlUI extends JDialog {
         }
       }
     });
+
+    luceneEditorPane.addHyperlinkListener(this);
+
+    /*luceneEditorPane.addHyperlinkListener(new HyperlinkListener() {
+      @Override
+      public void hyperlinkUpdate(HyperlinkEvent e) {
+        if(e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+          // Do something with e.getURL() here
+          if(Desktop.isDesktopSupported()) {
+            try {
+              System.out.println(e.toString());
+              System.out.println("Opening: "+e.getURL().toURI());
+              Desktop.getDesktop().browse(e.getURL().toURI());
+            } catch (IOException e1) {
+              e1.printStackTrace();
+            } catch (URISyntaxException e1) {
+              e1.printStackTrace();
+            }
+          }
+        }
+      }
+    });*/
+  }
+
+  @Override
+  public void hyperlinkUpdate(HyperlinkEvent e) {
+    if(e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+      // Do something with e.getURL() here
+      if(Desktop.isDesktopSupported()) {
+        try {
+          System.out.println(e.toString());
+          System.out.println(e.getURL());
+          System.out.println("Opening: "+e.getURL().toURI());
+          Desktop.getDesktop().browse(e.getURL().toURI());
+        } catch (IOException e1) {
+          e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+          e1.printStackTrace();
+        }
+      }
+    }
   }
 
   private void showInfo(String message) {
@@ -661,8 +830,8 @@ public class SparqlUI extends JDialog {
     panel39.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10), null));
     final JScrollPane scrollPane5 = new JScrollPane();
     panel39.add(scrollPane5, BorderLayout.CENTER);
-    luceneTextArea = new JTextArea();
-    scrollPane5.setViewportView(luceneTextArea);
+    luceneEditorPane = new JEditorPane();
+    scrollPane5.setViewportView(luceneEditorPane);
     ButtonGroup buttonGroup;
     buttonGroup = new ButtonGroup();
     buttonGroup.add(query4RadioButton);
